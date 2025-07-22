@@ -5,6 +5,7 @@ import { AlertTriangle, RefreshCw, MapPin } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useReverseGeocodeQuery, useForecastQuery, useWeatherQuery } from "@/hooks/use-weather";
 import CurrentWeather from "@/components/ui/current-weather";
+import HourlyTemperature from "@/components/ui/hourly-temperature";
 
 
 const WeatherDashboard = () => {
@@ -103,11 +104,12 @@ const WeatherDashboard = () => {
       </div>
 
       <div className="grid gap-6">
-        <div>
+        <div className="flex flex-col lg:flex-row gap-4">
           <CurrentWeather 
            data={weatherQuery.data} 
            locationName={locationName} />
-          {/* Current weather */}
+          
+          <HourlyTemperature data={forecastQuery.data} />
           {/* Hourly temperature */}
         </div>
 
