@@ -22,7 +22,7 @@ export function useFavorites() {
     queryKey: ["favorites"],
     queryFn: () => favorites,
     initialData: favorites,
-    staleTime: Infinity, // Since we're managing the data in localStorage
+    staleTime: Infinity, // Managing the data in localStorage
   });
 
   const addFavorite = useMutation({

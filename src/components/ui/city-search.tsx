@@ -4,16 +4,7 @@ import { format } from "date-fns";
 import { Search, Loader2, Clock, Star, XCircle } from "lucide-react";
 import { useLocationSearch } from "@/hooks/use-weather";
 import { useSearchHistory } from "@/hooks/use-search-history";
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "@/components/ui/command";
+import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList,CommandSeparator} from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
 import { useFavorites } from "@/hooks/use-favorite";
 

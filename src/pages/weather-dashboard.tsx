@@ -8,6 +8,7 @@ import CurrentWeather from "@/components/ui/current-weather";
 import HourlyTemperature from "@/components/ui/hourly-temperature";
 import WeatherDetails from "@/components/ui/weather-details";
 import WeatherForecast from "@/components/ui/weather-forecast";
+import FavoriteCities from "@/components/ui/favorite-cities";
 
 
 const WeatherDashboard = () => {
@@ -54,7 +55,8 @@ const WeatherDashboard = () => {
 
   if (!coordinates) {
    return (
-    <Alert variant="destructive">
+    <Alert>
+      <MapPin className="h-4 w-4" />
       <AlertTitle>Location Required</AlertTitle>
       <AlertDescription className="flex flex-col gap-4">
         <p>Please enable location access to see your local weather.</p>
@@ -69,19 +71,19 @@ const WeatherDashboard = () => {
 
   const locationName = locationQuery.data?.[0];
 
-  if (weatherQuery.error || forecastQuery.error) {
-    return(
+    if (weatherQuery.error || forecastQuery.error) {
+    return (
       <Alert variant="destructive">
-      <AlertTriangle className="h-4 w-4" />
-      <AlertTitle>Failed to fetch weather data. Please try again.</AlertTitle>
-      <AlertDescription className="flex flex-col gap-4">
-        <p>{locationError}</p>
-        <Button onClick={handleRefresh} variant={"outline"} className="w-fit">
-           <RefreshCw className="mr-2 h-4 w-4" />
-           Retry
-        </Button>
-      </AlertDescription>
-    </Alert>
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription className="flex flex-col gap-4">
+          <p>Failed to fetch weather data. Please try again.</p>
+          <Button variant="outline" onClick={handleRefresh} className="w-fit">
+            <RefreshCw className="mr-2 h-4 w-4" />
+            Retry
+          </Button>
+        </AlertDescription>
+      </Alert>
     );
   }
 
@@ -92,6 +94,7 @@ const WeatherDashboard = () => {
   return (
     <div className="space-y-4">
       {/* Favorite Cities */}
+      <FavoriteCities />
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button 
@@ -124,7 +127,7 @@ const WeatherDashboard = () => {
       </div>
     </div>
     
-  )
+  );
 }
 
 export default WeatherDashboard;
