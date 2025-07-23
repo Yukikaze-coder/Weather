@@ -47,7 +47,7 @@ export function useSearchHistory() {
             return newHistory;
         },
         onSuccess: (newHistory) => {
-            queryClient.setQueriesData(["search-history"], newHistory);
+            queryClient.setQueriesData({ queryKey: ["search-history"] }, newHistory);
         }
     });
 
@@ -57,7 +57,7 @@ export function useSearchHistory() {
             return [];
         },
         onSuccess: () => {
-            queryClient.setQueriesData(["search-history"], []);
+            queryClient.setQueriesData({ queryKey: ["search-history"] }, []);
         }
     });
     return {

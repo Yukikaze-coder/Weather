@@ -51,7 +51,6 @@ export interface ForecastData {
 }
 
 export interface GeocodingResponse {
-    [x: string]: string | number | Date;
     name: string;
     local_names: Record<string, string>;
     lat: number;
