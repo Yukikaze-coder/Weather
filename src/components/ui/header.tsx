@@ -14,7 +14,7 @@ const Header = () => {
           <img
             src={isDark ? "/logo.png" : "/logo2.png"}
             alt="Logo"
-            className="h-14"
+            className="h-20"
           />
         </Link>
         <div className="flex gap-4">
